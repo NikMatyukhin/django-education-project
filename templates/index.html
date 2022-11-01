@@ -10,23 +10,30 @@
     <title>Document</title>
 </head>
 <body>
+    
     {% block title %}
     <header class="page-title">
         <h1>Главная страница</h1>
     </header>
     {% endblock %}
+    
     <nav>
-        <a id="home-link" class="nav-link" href={% url 'home' %}>На главную</a>
-        <a class="nav-link" href={% url 'works-list' %}>Список работ</a>
-        <a class="nav-link" href={% url 'works-create' %}>Создание работ</a>
+        <ul class="nav-ul">
+            <li class="nav-li"><a href={% url 'home' %}>На главную</a></li>
+            <li class="nav-li"><a href={% url 'works-list' %}>Список работ</a></li>
+            <li class="nav-li"><a href={% url 'works-create' %}>Создание работ</a></li>
+        </ul>
     </nav>
+
     {% block content %}
     <article class="content">
         Вас приветствует сервис по работе с практическими работами!
     </article>
     {% endblock %}
+    
     <footer class="page-footer">
         <p>Создано для учебных целей</p>
     <footer>
+
 </body>
 </html>
