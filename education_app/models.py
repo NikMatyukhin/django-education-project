@@ -24,9 +24,6 @@ class Work(models.Model):
         through_fields=('work', 'teacher'),
         related_name='teacher_works',
     )
-    work_image = models.ImageField(
-        upload_to='static/'
-    )
 
     def __str__(self):
         return f'Работа "{self.name}"'
@@ -35,14 +32,12 @@ class Work(models.Model):
 class Assessment(models.Model):
     work = models.ForeignKey(
         Work,
-        primary_key=True,
         on_delete=models.CASCADE,
         related_name='assessments',
         help_text='Оцениваемая практическая работа студента',
     )
     student = models.ForeignKey(
         User,
-        primary_key=True,
         on_delete=models.CASCADE,
         related_name='student_assessments',
     )
