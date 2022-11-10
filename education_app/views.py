@@ -10,6 +10,7 @@ from .forms import WorkForm
 # Create your views here.
 class WorkListView(ListView):
     model = Work
+    paginate_by = 2
     # Дальше только для удобства
     template_name = 'education_app/work_list.html'
     context_object_name = "works"

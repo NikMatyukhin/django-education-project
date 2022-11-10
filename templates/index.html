@@ -19,6 +19,12 @@
     
     <nav>
         <ul class="nav-ul">
+            {% if user.is_authenticated %}
+            <li class="nav-li"><a href={% url 'logout' %}>Выход</a></li>
+            {% else %}
+            <li class="nav-li"><a href={% url 'signup' %}>Регистрация</a></li>
+            <li class="nav-li"><a href={% url 'login' %}>Логин</a></li>
+            {% endif %}
             <li class="nav-li"><a href={% url 'home' %}>На главную</a></li>
             <li class="nav-li"><a href={% url 'works-list' %}>Список работ</a></li>
             <li class="nav-li"><a href={% url 'works-create' %}>Создание работ</a></li>
