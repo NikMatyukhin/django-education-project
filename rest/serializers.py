@@ -5,10 +5,15 @@ from education_app.models import Work, Assessment
 
 # Create your serializers here
 class WorkSerializer(serializers.ModelSerializer):
+    assessments = serializers.SlugRelatedField(
+        read_only=True,
+        many=True,
+        slug_field='score'
+    )
 
     class Meta:
         model = Work
-        fields = ['name', 'description']
+        fields = ['name', 'description', 'assessments']
 
     # Свою валидацию можно оставить
     def validate_name(self, value):
@@ -52,9 +57,9 @@ class AssessmentSerializer(serializers.HyperlinkedModelSerializer):
     #     read_only=True,
     #     view_name='user-detail'
     # )
-    # work = WorkSerializer(read_only=True)
-    # student = UserSerializer(read_only=True)
-    # teacher = UserSerializer(read_only=True)
+    # work = WorkSerializer()
+    # student = UserSerializer()
+    # teacher = UserSerializer()
 
     class Meta:
         model = Assessment
