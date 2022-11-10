@@ -1,8 +1,15 @@
 from django.urls import path
 
-from .views import WorkViewset
+from .views import WorkViewSet, AssessmentViewSet, UserViewSet
+
 
 urlpatterns = [
-    path('works/', WorkViewset.as_view({'get': 'list', 'post': 'create'}), name='works-list'),
-    path('works/<int:pk>', WorkViewset.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'}), name='works-detail'),
+    path('works/', WorkViewSet.as_view({'get': 'list', 'post': 'create'}), name='work-list'),
+    path('works/<int:pk>', WorkViewSet.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'}), name='work-detail'),
+    path('assessments/', AssessmentViewSet.as_view({'get': 'list', 'post': 'create'}), name='assessment-list'),
+    path('assessments/<int:pk>', AssessmentViewSet.as_view({'get': 'retrieve'}), name='assessment-detail'),
+    path('users/', UserViewSet.as_view({'get': 'list'}), name='user-list'),
+    path('users/<int:pk>', UserViewSet.as_view({'get': 'retrieve'}), name='user-detail'),
+    # path('users/', UserViewSet.as_view({'get': 'list', 'post': 'create'}), name='user-list'),
+    # path('users/<int:pk>', UserViewSet.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'}), name='user-detail'),
 ]
