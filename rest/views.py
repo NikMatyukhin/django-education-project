@@ -5,7 +5,7 @@ from django.db.models import Sum, Max, F
 
 from education_app.models import Work, Assessment
 
-from .serializers import WorkSerializer, AssessmentSerializer, UserSerializer
+from .serializers import WorkSerializer, WorkAssessmentsSerializer, AssessmentSerializer, UserSerializer
 
 # Create your views here.
 class WorkViewSet(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin):
@@ -19,7 +19,7 @@ class WorkViewSet(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.Retriev
             .annotate(score_sum=Sum('assessments__score'))
             .order_by('-score_sum')[:3]
         )
-        serializer = WorkSerializer(works, many=True)
+        serializer = WorkAssessmentsSerializer(works, many=True)
         return response.Response(data=serializer.data)
 
 
