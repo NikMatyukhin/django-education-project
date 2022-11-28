@@ -1,0 +1,1 @@
+[![buddy pipeline](https://app.buddy.works/nmatryukhin/django-education-project/pipelines/pipeline/425861/badge.svg?token=e1f07f7cfa8734d366f692b2ca7832d4cfed8aec85ff7695957e0b6b30a17d1e "buddy pipeline")](https://app.buddy.works/nmatryukhin/django-education-project/pipelines/pipeline/425861)
