@@ -1,3 +1,5 @@
+"""Модуль admin.py нужен для работы с админкой Django"""
+
 from django.contrib import admin
 
 from .models import Work, Assessment
