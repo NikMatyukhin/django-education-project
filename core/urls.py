@@ -20,17 +20,17 @@ from django.views.generic import TemplateView
 
 
 def response_error_handler(request: HttpRequest, exception=None) -> HttpResponse:
-    return HttpResponse('Now we have a error handler content!!!', status=404)
+    return HttpResponse("Now we have a error handler content!!!", status=404)
 
 
 handler404 = response_error_handler
 
 
 urlpatterns = [
-    path('', TemplateView.as_view(template_name='index.html'), name='home'),
-    path('admin/', admin.site.urls),
-    path('works/', include('education_app.urls')),
-    path('api-auth/', include('rest_framework.urls')),
-    path('api/', include('rest.urls')),
-    path('', include('user_app.urls'))
+    path("", TemplateView.as_view(template_name="index.html"), name="home"),
+    path("admin/", admin.site.urls),
+    path("works/", include("education_app.urls"), name="works"),
+    path("api-auth/", include("rest_framework.urls")),
+    path("api/", include("rest.urls")),
+    path("", include("user_app.urls")),
 ]

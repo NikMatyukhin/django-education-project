@@ -5,9 +5,9 @@ from .views import WorkViewSet, AssessmentViewSet, UserViewSet
 
 
 router = routers.SimpleRouter()
-router.register(r'works', WorkViewSet)
-router.register(r'assessments', AssessmentViewSet)
-router.register(r'users', UserViewSet)
+router.register(r"works", WorkViewSet, basename="works")
+router.register(r"assessments", AssessmentViewSet)
+router.register(r"users", UserViewSet)
 
 urlpatterns = router.urls
 
